@@ -157,42 +157,28 @@
 			const buttons = document.querySelectorAll(".detail-btn");
 	
 			buttons.forEach(button => {
-					const parentRow = button.closest("tr");
-					const details = button.getAttribute("data-details");
-	
-					if (!details) return; // Kontrola, jestli jsou data k dispozici
-	
-					// Rozdělení textu na různé části
-					const parts = details.split("|");
-	
-					// Formátování textu s odstavci
-					const formattedDetails = `
-							<p><strong>Název pozice:</strong> ${parts[0]}</p>
-							<p><strong>Popis:</strong> ${parts[1]}</p>
-							<p><strong>Plat:</strong> ${parts[2]}</p>
-							<p><strong>Datum nástupu:</strong> ${parts[3]}</p>
-					`;
-	
-					// Vytvoření detailního řádku (skrytého při načtení stránky)
-					const detailRow = document.createElement("tr");
-					detailRow.classList.add("detail-row");
-					detailRow.style.display = "none"; // Skrytí řádku
-	
-					const detailCell = document.createElement("td");
-					detailCell.colSpan = parentRow.children.length; // Zajistí, že detail pokryje celou šířku tabulky
-					detailCell.style.padding = "1em";
-					detailCell.innerHTML = formattedDetails;
-	
-					detailRow.appendChild(detailCell);
-					parentRow.after(detailRow);
-	
-					// Přidání event listeneru na tlačítko
 					button.addEventListener("click", () => {
-							// Přepínání viditelnosti detailního řádku
-							if (detailRow.style.display === "none") {
-									detailRow.style.display = "table-row"; // Zobrazit detail
-							} else {
-									detailRow.style.display = "none"; // Skrýt detail
+							const parentRow = button.closest("tr");
+							const detailRow = parentRow.nextElementSibling;  // Sousední řádek, který obsahuje detailní obsah
+							
+							// Pokud detailní řádek existuje, přepneme jeho zobrazení
+							if (detailRow && detailRow.classList.contains("detail-row")) {
+									// Přepnutí zobrazení (pokud je skrytý, zobrazí se, a naopak)
+									if (detailRow.style.display === "none") {
+											detailRow.style.display = "";
+											// Nahrání detailů do detailního řádku
+											const details = button.getAttribute("data-details");
+											const parts = details.split("|");
+											const formattedDetails = `
+													<p><strong>Název pozice:</strong> ${parts[0]}</p>
+													<p><strong>Popis:</strong> ${parts[1]}</p>
+													<p><strong>Plat:</strong> ${parts[2]}</p>
+													<p><strong>Datum nástupu:</strong> ${parts[3]}</p>
+											`;
+											detailRow.querySelector(".detail-content").innerHTML = formattedDetails;
+									} else {
+											detailRow.style.display = "none";
+									}
 							}
 					});
 			});
