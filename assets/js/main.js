@@ -170,10 +170,10 @@
 											const details = button.getAttribute("data-details");
 											const parts = details.split("|");
 											const formattedDetails = `
-													<p><strong>Název pozice:</strong> ${parts[0]}</p>
-													<p><strong>Popis:</strong> ${parts[1]}</p>
-													<p><strong>Plat:</strong> ${parts[2]}</p>
-													<p><strong>Datum nástupu:</strong> ${parts[3]}</p>
+													<p><strong><u>Název pozice:</u></strong> ${parts[0]}</p>
+													<p><strong><u>Popis:</u></strong> ${parts[1]}</p>
+													<p><strong><u>Plat</u></strong> ${parts[2]}</p>
+													<p><strong><u>Datum nástupu:</u></strong> ${parts[3]}</p>
 											`;
 											detailRow.querySelector(".detail-content").innerHTML = formattedDetails;
 									} else {
@@ -183,8 +183,6 @@
 					});
 			});
 	});
-	
-
 	
 	// Carousels.
 		$('.carousel').each(function() {
