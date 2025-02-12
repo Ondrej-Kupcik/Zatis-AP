@@ -2435,7 +2435,7 @@ input, select, textarea {
 			/* Animovaný obrázek */
 			#sliding-image {
 				position: relative;
-				left: -100%;
+				left: -150%;
 				max-width: 100%; /* Obrázek nebude širší než rodičovský element */
 				height: 500px; /* Výška se přizpůsobí automaticky podle šířky */
 				margin-left: 50px;
@@ -2536,7 +2536,7 @@ input, select, textarea {
 		overflow: hidden;
 		font-size: 30px;
 		font-weight: bolder;
-		background-color: #f5f5f5; /* Bílý podklad */
+		background-color: #fff; /* Bílý podklad */
 		color: #000000;
 		text-shadow: 
 			-3px -3px 5px #dedddd,  
