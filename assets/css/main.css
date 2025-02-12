@@ -2536,13 +2536,8 @@ input, select, textarea {
 		overflow: hidden;
 		font-size: 30px;
 		font-weight: bolder;
-		background-color: #fff; /* Bílý podklad */
+		background-color: #f5f5f5; /* Bílý podklad */
 		color: #000000;
-		text-shadow: 
-			-3px -3px 5px #dedddd,  
-			3px -3px 5px #dedddd,
-			-3px 3px 5px #dedddd,
-			3px 3px 5px #dedddd; /* Vytvoření černého obrysu */
 		
 	}
 
