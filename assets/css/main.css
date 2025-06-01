@@ -2197,111 +2197,132 @@ input, select, textarea {
 /* Wrapper */
 
 	.wrapper {
-		background: #fff;
-		margin-top: 0px;
-		margin-bottom: 50px;
-
-	}
-
-		.wrapper.style2 {
-			padding-top: 0;
-			margin-bottom: 50px;
-		}
-
-		.table-container {
-			padding-bottom: 50px;;
-		}
-
-		/* Styl pro tabulku */
-	.table-container {
-		overflow-x: auto;
-		margin-top: 2em;
-	}
-
-	.job-table {
-		width: 100%;
-		border-collapse: collapse;
-		margin: 0 auto;
-		font-family: Arial, sans-serif;
-		text-align: left;
-	}
-
-	.job-table th, .job-table td {
-		border: 1px solid #ddd;
-		padding: 1em;
-	}
-
-	.job-table th {
-		background-color: #f4f4f4;
-		font-weight: bold;
-	}
-
-	.job-table td {
-		vertical-align: middle;
-	}
-
-	.button-cell {
-    text-align: center; /* Zarovnání na střed horizontálně */
-    vertical-align: middle; /* Zarovnání na střed vertikálně */
+	background: #fff;
+	margin-top: 0px;
+	margin-bottom: 50px;
 }
 
-	.detail-btn {
-    background-color: #d8dbd9; /* Barva pozadí odpovídající ostatním tlačítkům */
-    color: #000000; /* Barva textu */
-    border: none;
-    padding: 0.65em 3em; /* Stejné jako ostatní tlačítka */
-    cursor: pointer;
-    border-radius: 0.5em; /* Stejné zakulacení */
-    font-size: 1em;
-    font-weight: bolder; /* Tučný text jako ostatní tlačítka */
-    transition: background-color 0.35s, color 0.35s; /* Plynulý přechod */
-		display: inline-block;
+.wrapper.style2 {
+	padding-top: 0;
+	margin-bottom: 50px;
+}
+
+.table-container {
+	padding: 0 1em 50px 1em; /* přidá místo i po stranách */
+	overflow-x: auto;
+	margin-top: 2em;
+}
+
+/* Styl pro tabulku */
+.job-table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	margin: 0 auto;
+	border-radius: 10px;
+	overflow: hidden;
+	font-family: Arial, sans-serif;
+	text-align: left;
+	box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+ /* Jemný stín */
+}
+
+.job-table th,
+.job-table td {
+	border: 1px solid #ddd;
+	padding: 1em;
+}
+
+.job-table th {
+	background-color: #f4f4f4;
+	font-weight: bold;
+}
+
+/* Zaoblení rohů hlavičky */
+.job-table th:first-child {
+	border-top-left-radius: 10px;
+}
+
+.job-table th:last-child {
+	border-top-right-radius: 10px;
+}
+
+/* Zaoblení rohů posledního viditelného řádku (bez detail-row) */
+.job-table tr:not(.detail-row):last-of-type td:first-child {
+	border-bottom-left-radius: 10px;
+}
+
+.job-table tr:not(.detail-row):last-of-type td:last-child {
+	border-bottom-right-radius: 10px;
+}
+
+.job-table td {
+	vertical-align: middle;
+}
+
+.button-cell {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.detail-btn {
+	background-color: #d8dbd9;
+	color: #000000;
+	border: none;
+	padding: 0.65em 3em;
+	cursor: pointer;
+	border-radius: 0.5em;
+	font-size: 1em;
+	font-weight: bolder;
+	transition: background-color 0.35s, color 0.35s;
+	display: inline-block;
 }
 
 .detail-btn:hover {
-    background-color: #4a4949; /* Barva pozadí při najetí odpovídající ostatním tlačítkům */
-    color: #ffffff; /* Barva textu při najetí */
+	background-color: #4a4949;
+	color: #ffffff;
 }
 
 .detail-row {
-	background-color: #f9f9f9; /* Světle šedé pozadí */
-	color: #333; /* Barva textu */
+	background-color: #f9f9f9;
+	color: #333;
 }
 
 .detail-row td {
-	display: table-cell; /* Zajistí normální tabulkový vzhled v běžném zobrazení */
-	width: 100%; /* Detailní obsah zabere celou šířku tabulky */
-	padding: 1em; /* Přidá vnitřní odsazení */
-	box-sizing: border-box; /* Zamezí přesahování obsahu */
+	display: table-cell;
+	width: 100%;
+	padding: 1em;
+	box-sizing: border-box;
 }
 
-	/* Styl pro box s detaily */
-	.details-box {
-		margin-top: 2em;
-		padding: 1em;
-		border: 1px solid #ddd;
-		background-color: #f9f9f9;
-		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-		text-align: left;
-		max-width: 600px;
-		margin: 2em auto;
-	}
+/* Styl pro box s detaily */
+.details-box {
+	margin-top: 2em;
+	padding: 1em;
+	border: 1px solid #ddd;
+	background-color: #f9f9f9;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+	text-align: left;
+	max-width: 600px;
+	margin: 2em auto;
+}
 
-	#close-details {
-		background-color: #dc3545;
-		color: white;
-		border: none;
-		padding: 0.5em 1em;
-		cursor: pointer;
-		border-radius: 5px;
-		margin-top: 1em;
-		font-size: 1em;
-		transition: background-color 0.3s;
-	}
+#close-details {
+	background-color: #dc3545;
+	color: white;
+	border: none;
+	padding: 0.5em 1em;
+	cursor: pointer;
+	border-radius: 5px;
+	margin-top: 1em;
+	font-size: 1em;
+	transition: background-color 0.3s;
+}
 
-	#close-details:hover {
-		background-color: #a71d2a;
-	}
+#close-details:hover {
+	background-color: #a71d2a;
+}
+
 
 
 /* Header */
@@ -2541,6 +2562,15 @@ input, select, textarea {
 		
 	}
 
+#nav .logo {
+	height: 30px; /* větší logo */
+	width: auto;
+	position: absolute;
+	left: 20px; /* více vlevo */
+	top: 50%;
+	transform: translateY(-50%);
+}
+
 		#nav > ul {
 			line-height: 0px;
 			position: relative;
@@ -2720,6 +2750,67 @@ input, select, textarea {
 	#main section:first-of-type {
 		padding-top: 2em;
 	}
+
+	columns {
+  display: flex;
+  gap: 3em;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.column {
+  flex: 1 1 45%;
+  background: #f9f9f9;
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  min-width: 300px;
+}
+
+.column h3 {
+  margin-top: 0;
+  font-size: 1.4em;
+  color: #222;
+}
+
+.column ul {
+  list-style: disc;
+  padding-left: 1.5em;
+  margin-top: 1em;
+}
+
+.column li {
+  margin-bottom: 0.6em;
+  line-height: 1.5em;
+}
+
+.hero-intro {
+  position: relative;
+  height: 200px;
+  background: linear-gradient(to right, #00416a, #e4e5e6); /* nebo jiný přechod */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 0; /* důležité! */
+  padding: 0;
+  border-bottom: none;
+}
+
+/* Textura – volitelná ozdoba */
+.hero-intro .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml;utf8,<svg opacity="0.03" width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="%23ffffff"/></svg>');
+  background-repeat: repeat;
+  pointer-events: none;
+}
+
+
+
 /* Footer */
 
 	#footer {
@@ -2897,6 +2988,8 @@ input, select, textarea {
 			.contact-form{
 				padding-bottom: 20px;
 			}
+
+			
 /* Wide */
 
 	@media screen and (max-width: 1680px) {
@@ -3484,5 +3577,79 @@ input, select, textarea {
 				padding-right: 1em;
 			}
 	}
+
+	/* === Contact Form & Map Section === */
+
+.contact-section {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	margin-top: 2rem;
+	align-items: stretch;
+}
+
+.contact-info,
+.contact-map {
+	background: #f9f9f9;
+	padding: 2rem;
+	border-radius: 15px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	flex: 1 1 45%;
+	min-height: 850px;
+	display: flex;
+	flex-direction: column;
+}
+
+.contact-info h2,
+.contact-map h2 {
+	margin-bottom: 1rem;
+	font-size: 1.5em;
+	color: #333;
+}
+
+.contact-details {
+	margin-bottom: 1.5rem;
+	line-height: 1.5;
+}
+
+.contact-details a {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.contact-info form {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.contact-info form label {
+	font-weight: bold;
+	margin-top: 1rem;
+	display: block;
+	color: #444;
+}
+
+.contact-info form input,
+.contact-info form textarea {
+	width: 100%;
+	padding: 10px;
+	margin-top: 5px;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	box-sizing: border-box;
+}
+
+.contact-info form button {
+	margin-top: auto;
+}
+
+.contact-map iframe {
+	flex-grow: 1;
+	width: 100%;
+	border: none;
+	height: 100%;
+	border-radius: 15px;
+}
 
 	
