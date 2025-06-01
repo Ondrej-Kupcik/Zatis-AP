@@ -172,7 +172,7 @@
 											const formattedDetails = `
 													<p><strong><u>Název pozice:</u></strong> ${parts[0]}</p>
 													<p><strong><u>Popis:</u></strong> ${parts[1]}</p>
-													<p><strong><u>Plat</u></strong> ${parts[2]}</p>
+													<p><strong><u>Plat:</u></strong> ${parts[2]}</p>
 													<p><strong><u>Datum nástupu:</u></strong> ${parts[3]}</p>
 											`;
 											detailRow.querySelector(".detail-content").innerHTML = formattedDetails;
