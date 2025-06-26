@@ -2214,6 +2214,7 @@ input, select, textarea {
 }
 
 /* Styl pro tabulku */
+/* Styl pro tabulku */
 .job-table {
 	width: 100%;
 	border-collapse: separate;
@@ -2223,8 +2224,7 @@ input, select, textarea {
 	overflow: hidden;
 	font-family: Arial, sans-serif;
 	text-align: left;
-	box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
- /* Jemný stín */
+	box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1); /* Jemný stín */
 }
 
 .job-table th,
@@ -2248,17 +2248,32 @@ input, select, textarea {
 }
 
 /* Zaoblení rohů posledního viditelného řádku (bez detail-row) */
-.job-table tr:not(.detail-row):last-of-type td:first-child {
+.job-table tbody tr:not(.detail-row):nth-last-of-type(2) td:first-child {
 	border-bottom-left-radius: 10px;
 }
 
-.job-table tr:not(.detail-row):last-of-type td:last-child {
+.job-table tbody tr:not(.detail-row):nth-last-of-type(2) td:last-child {
+	border-bottom-right-radius: 10px;
+}
+
+.job-table tbody tr.detail-row:last-child td:first-child {
+	border-bottom-left-radius: 10px;
+}
+
+.job-table tbody tr.detail-row:last-child td:last-child {
 	border-bottom-right-radius: 10px;
 }
 
 .job-table td {
 	vertical-align: middle;
 }
+
+/* ✅ Tučný text pro první buňku každého řádku v tbody – tedy pro pracovní pozice */
+.job-table tbody tr:not(.detail-row) td:first-child {
+	font-weight: bold;
+}
+
+
 
 .button-cell {
 	text-align: center;
@@ -2566,7 +2581,7 @@ input, select, textarea {
 	height: 30px; /* větší logo */
 	width: auto;
 	position: absolute;
-	left: 20px; /* více vlevo */
+	left: 10px; /* více vlevo */
 	top: 50%;
 	transform: translateY(-50%);
 }
@@ -3588,6 +3603,7 @@ input, select, textarea {
 	align-items: stretch;
 }
 
+/* Levý blok: kontakty + formulář */
 .contact-info,
 .contact-map {
 	background: #f9f9f9;
@@ -3600,6 +3616,7 @@ input, select, textarea {
 	flex-direction: column;
 }
 
+/* Nadpisy (nepoužívají se, ale zůstávají pro případné rozšíření) */
 .contact-info h2,
 .contact-map h2 {
 	margin-bottom: 1rem;
@@ -3607,9 +3624,18 @@ input, select, textarea {
 	color: #333;
 }
 
+/* Kontaktní údaje vedle sebe */
 .contact-details {
-	margin-bottom: 1.5rem;
+	display: flex;
+	justify-content: center;
+	gap: 2em;
+	flex-wrap: wrap;
+	margin-bottom: 2em;
 	line-height: 1.5;
+}
+
+.contact-details p {
+	margin: 0;
 }
 
 .contact-details a {
@@ -3638,12 +3664,26 @@ input, select, textarea {
 	border: 1px solid #ccc;
 	border-radius: 10px;
 	box-sizing: border-box;
+	font-family: inherit;
 }
 
 .contact-info form button {
 	margin-top: auto;
+	padding: 0.75rem 2rem;
+	border: none;
+	background-color: #0066cc;
+	color: white;
+	font-size: 1rem;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
 }
 
+.contact-info form button:hover {
+	background-color: #004c99;
+}
+
+/* Mapa */
 .contact-map iframe {
 	flex-grow: 1;
 	width: 100%;
@@ -3651,5 +3691,31 @@ input, select, textarea {
 	height: 100%;
 	border-radius: 15px;
 }
+
+/* Odkazy v kontaktech */
+.contact-inline a,
+.contact-details a {
+	color: #0066cc;
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.contact-inline a:hover,
+.contact-details a:hover {
+	text-decoration: underline;
+}
+
+/* Responsivní úprava */
+@media screen and (max-width: 768px) {
+	.contact-section {
+		flex-direction: column;
+	}
+
+	.contact-info,
+	.contact-map {
+		min-height: auto;
+	}
+}
+
 
 	
